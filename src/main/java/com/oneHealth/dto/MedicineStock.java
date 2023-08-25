@@ -16,7 +16,7 @@ public class MedicineStock {
 
  
 
-    private Integer pharmaId;
+    private long pharmaId;
 
  
 
@@ -53,7 +53,7 @@ public class MedicineStock {
 
 
 
-	public MedicineStock(Integer medicineStockId, Medicine medicine, Integer pharmaId, Integer medicineUnits,
+	public MedicineStock(Integer medicineStockId, Medicine medicine, long pharmaId, Integer medicineUnits,
 			Date expDate, Date mfgDate, String batchNo, BigDecimal price, String packSize) {
 		super();
 		this.medicineStockId = medicineStockId;
@@ -93,13 +93,13 @@ public class MedicineStock {
 
 
 
-	public Integer getPharmaId() {
+	public long getPharmaId() {
 		return pharmaId;
 	}
 
 
 
-	public void setPharmaId(Integer pharmaId) {
+	public void setPharmaId(long pharmaId) {
 		this.pharmaId = pharmaId;
 	}
 

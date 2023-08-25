@@ -1,5 +1,7 @@
 package com.oneHealth.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.oneHealth.dto.CartItemRequest;
 import com.oneHealth.entity.MedicineCart;
+
+import com.oneHealth.exception.DatabaseException;
 import com.oneHealth.exception.ResourceNotFoundException;
 import com.oneHealth.exception.ServiceNotAvailableException;
 import com.oneHealth.service.MedicineCartService;
@@ -84,6 +88,15 @@ public class MedCartController {
 
 	 }
 	
+	 @GetMapping("/getAllCarts")
+	 public ResponseEntity<List<MedicineCart>> getAllCarts() throws DatabaseException{
+		  try {
+              List<MedicineCart> carts = medicineCartService.getAllCarts();
+              return ResponseEntity.ok(carts);
+        } catch (DatabaseException e) {
+            throw e;
+        }
+	 }
 	
 	
 	

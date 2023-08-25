@@ -5,6 +5,7 @@ public class CartItemRequest {
 	private long medicineId;
 	private long patientId;
 	private int quantity;
+	
 	public CartItemRequest() {
 		super();
 		// TODO Auto-generated constructor stub

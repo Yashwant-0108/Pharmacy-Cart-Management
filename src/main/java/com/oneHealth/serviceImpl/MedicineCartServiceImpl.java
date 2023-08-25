@@ -1,6 +1,7 @@
 package com.oneHealth.serviceImpl;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
@@ -15,6 +16,7 @@ import com.oneHealth.dto.MedicineStock;
 import com.oneHealth.dto.Patient;
 import com.oneHealth.entity.MedicineCart;
 import com.oneHealth.entity.MedicineCartItem;
+import com.oneHealth.exception.DatabaseException;
 import com.oneHealth.exception.ResourceNotFoundException;
 import com.oneHealth.exception.ServiceNotAvailableException;
 import com.oneHealth.repository.MedicineCartRepository;
@@ -77,6 +79,7 @@ public class MedicineCartServiceImpl implements MedicineCartService {
 	    MedicineCartItem cartItem = new MedicineCartItem();
 	    cartItem.setQuantity(itemRequest.getQuantity());
 	    cartItem.setMedicineId(itemRequest.getMedicineId());
+	    cartItem.setPharmaId(medicine.getPharmaId());
 	    BigDecimal totalPrice = medicine.getPrice()
 	    		.multiply(BigDecimal.valueOf(itemRequest.getQuantity()));
 	    cartItem.setTotalProductPrice(totalPrice);
@@ -210,6 +213,14 @@ public class MedicineCartServiceImpl implements MedicineCartService {
 		cart.setCartTotalPrice(totalBigDecimal);
 		medicineCartRepository.save(cart);
 		
+	}
+
+
+
+	@Override
+	public List<MedicineCart> getAllCarts() throws DatabaseException {
+		List<MedicineCart> carts = medicineCartRepository.findAll();
+		return carts;
 	}
 
 }
