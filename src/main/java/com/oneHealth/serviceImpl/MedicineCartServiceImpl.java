@@ -79,7 +79,10 @@ public class MedicineCartServiceImpl implements MedicineCartService {
 	    MedicineCartItem cartItem = new MedicineCartItem();
 	    cartItem.setQuantity(itemRequest.getQuantity());
 	    cartItem.setMedicineId(itemRequest.getMedicineId());
+	    cartItem.setPharmaName(medicine.getPharmaName());
+	    cartItem.setPharmaAddress(medicine.getPharmaAddress());
 	    cartItem.setPharmaId(medicine.getPharmaId());
+	    
 	    BigDecimal totalPrice = medicine.getPrice()
 	    		.multiply(BigDecimal.valueOf(itemRequest.getQuantity()));
 	    cartItem.setTotalProductPrice(totalPrice);

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.oneHealth.patient.pharmacyInventoryManagement.PharmacyCartManagementServiceApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 18.346 s - in com.oneHealth.patient.pharmacyInventoryManagement.PharmacyCartManagementServiceApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 17.6 s - in com.oneHealth.patient.pharmacyInventoryManagement.PharmacyCartManagementServiceApplicationTests
