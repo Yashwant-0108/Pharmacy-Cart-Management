@@ -20,6 +20,8 @@ public class MedicineCartItem {
 	private BigDecimal totalProductPrice;
 	private String medicineName;
 	private long pharmaId;
+	private String pharmaName;
+	private String pharmaAddress;
 	@JsonBackReference
 	@ManyToOne
 	private MedicineCart medicineCart;
@@ -28,7 +30,7 @@ public class MedicineCartItem {
 		// TODO Auto-generated constructor stub
 	}
 	public MedicineCartItem(long cartItemId, int quantity, long medicineId, BigDecimal totalProductPrice,
-			String medicineName, long pharmaId, MedicineCart medicineCart) {
+			String medicineName, long pharmaId, String pharmaName, String pharmaAddress, MedicineCart medicineCart) {
 		super();
 		this.cartItemId = cartItemId;
 		this.quantity = quantity;
@@ -36,13 +38,16 @@ public class MedicineCartItem {
 		this.totalProductPrice = totalProductPrice;
 		this.medicineName = medicineName;
 		this.pharmaId = pharmaId;
+		this.pharmaName = pharmaName;
+		this.pharmaAddress = pharmaAddress;
 		this.medicineCart = medicineCart;
 	}
 	@Override
 	public String toString() {
 		return "MedicineCartItem [cartItemId=" + cartItemId + ", quantity=" + quantity + ", medicineId=" + medicineId
 				+ ", totalProductPrice=" + totalProductPrice + ", medicineName=" + medicineName + ", pharmaId="
-				+ pharmaId + ", medicineCart=" + medicineCart + "]";
+				+ pharmaId + ", pharmaName=" + pharmaName + ", pharmaAddress=" + pharmaAddress + ", medicineCart="
+				+ medicineCart + "]";
 	}
 	public long getCartItemId() {
 		return cartItemId;
@@ -80,13 +85,26 @@ public class MedicineCartItem {
 	public void setPharmaId(long pharmaId) {
 		this.pharmaId = pharmaId;
 	}
+	public String getPharmaName() {
+		return pharmaName;
+	}
+	public void setPharmaName(String pharmaName) {
+		this.pharmaName = pharmaName;
+	}
+	public String getPharmaAddress() {
+		return pharmaAddress;
+	}
+	public void setPharmaAddress(String pharmaAddress) {
+		this.pharmaAddress = pharmaAddress;
+	}
 	public MedicineCart getMedicineCart() {
 		return medicineCart;
 	}
 	public void setMedicineCart(MedicineCart medicineCart) {
 		this.medicineCart = medicineCart;
 	}
-
+	
+	
 	
 	
 

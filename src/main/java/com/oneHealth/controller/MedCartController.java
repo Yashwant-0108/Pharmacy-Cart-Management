@@ -33,7 +33,7 @@ public class MedCartController {
 	private MedicineCartService medicineCartService;
 	
 	
-	@PostMapping("/add-to-cart")
+	@PostMapping("/addToCart")
     public ResponseEntity<String> addToCart(@RequestBody CartItemRequest itemRequest) throws ResourceNotFoundException {
         
 
@@ -65,7 +65,7 @@ public class MedCartController {
 				
 		        return ResponseEntity.ok("Medicine removed from med cart successfully.");
 			} catch (ResourceNotFoundException | ServiceNotAvailableException e) {
-				// TODO Auto-generated catch block
+		
 				e.printStackTrace();
 				throw e;
 			}
