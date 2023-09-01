@@ -4,116 +4,87 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 public class Medicine {
 
-	
     private int medicineId;
 
     @JsonDeserialize
     private MedicineCategory category;
 
- 
-
     private String medicineName;
-
- 
 
     private String medicineImages;
 
- 
-
-//    @Transient
-//    private List<MultipartFile> medicineImages;
-
- 
     private Boolean medicineAvailability;
 
- 
-
+    // Default constructor
     public Medicine() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
+    // Constructor with parameters
+    public Medicine(Integer medicineId, MedicineCategory category, String medicineName, String medicineImages,
+            Boolean medicineAvailability) {
+        super();
+        this.medicineId = medicineId;
+        this.category = category;
+        this.medicineName = medicineName;
+        this.medicineImages = medicineImages;
+        this.medicineAvailability = medicineAvailability;
+    }
 
+    // Getter for medicineId
+    public Integer getMedicineId() {
+        return medicineId;
+    }
 
-	public Integer getMedicineId() {
-		return medicineId;
-	}
+    // Setter for medicineId
+    public void setMedicineId(Integer medicineId) {
+        this.medicineId = medicineId;
+    }
 
+    // Getter for category
+    public MedicineCategory getCategory() {
+        return category;
+    }
 
+    // Setter for category
+    public void setCategory(MedicineCategory category) {
+        this.category = category;
+    }
 
-	public void setMedicineId(Integer medicineId) {
-		this.medicineId = medicineId;
-	}
+    // Getter for medicineName
+    public String getMedicineName() {
+        return medicineName;
+    }
 
+    // Setter for medicineName
+    public void setMedicineName(String medicineName) {
+        this.medicineName = medicineName;
+    }
 
+    // Getter for medicineImages
+    public String getMedicineImages() {
+        return medicineImages;
+    }
 
-	public MedicineCategory getCategory() {
-		return category;
-	}
+    // Setter for medicineImages
+    public void setMedicineImages(String medicineImages) {
+        this.medicineImages = medicineImages;
+    }
 
+    // Getter for medicineAvailability
+    public Boolean getMedicineAvailability() {
+        return medicineAvailability;
+    }
 
+    // Setter for medicineAvailability
+    public void setMedicineAvailability(Boolean medicineAvailability) {
+        this.medicineAvailability = medicineAvailability;
+    }
 
-	public void setCategory(MedicineCategory category) {
-		this.category = category;
-	}
-
-
-
-	public String getMedicineName() {
-		return medicineName;
-	}
-
-
-
-	public void setMedicineName(String medicineName) {
-		this.medicineName = medicineName;
-	}
-
-
-
-	public String getMedicineImages() {
-		return medicineImages;
-	}
-
-
-
-	public void setMedicineImages(String medicineImages) {
-		this.medicineImages = medicineImages;
-	}
-
-
-
-	public Boolean getMedicineAvailability() {
-		return medicineAvailability;
-	}
-
-
-
-	public void setMedicineAvailability(Boolean medicineAvailability) {
-		this.medicineAvailability = medicineAvailability;
-	}
-
-
-
-	@Override
-	public String toString() {
-		return "Medicine [medicineId=" + medicineId + ", category=" + category + ", medicineName=" + medicineName
-				+ ", medicineImages=" + medicineImages + ", medicineAvailability=" + medicineAvailability + "]";
-	}
-
-
-
-	public Medicine(Integer medicineId, MedicineCategory category, String medicineName, String medicineImages,
-			Boolean medicineAvailability) {
-		super();
-		this.medicineId = medicineId;
-		this.category = category;
-		this.medicineName = medicineName;
-		this.medicineImages = medicineImages;
-		this.medicineAvailability = medicineAvailability;
-	}
-    
-    
-    
-    
+    // toString method for debugging and logging purposes
+    @Override
+    public String toString() {
+        return "Medicine [medicineId=" + medicineId + ", category=" + category + ", medicineName=" + medicineName
+                + ", medicineImages=" + medicineImages + ", medicineAvailability=" + medicineAvailability + "]";
+    }
 }
