@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-slim
+FROM openjdk:17-jdk
 
 COPY target/PharmacyCartManagementService.jar app1.jar
 
