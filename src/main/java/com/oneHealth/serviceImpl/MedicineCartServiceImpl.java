@@ -48,7 +48,7 @@ public class MedicineCartServiceImpl implements MedicineCartService {
         // Fetch patient details from Patient Management service
         Patient patientDto = webClientBuilder.build()
                 .get()
-                .uri("https://onehealthpatientmanagement-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/patientProfile/{patient_id}", itemRequest.getPatientId())
+                .uri("https://onehealthpatientmanagement-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/patientProfile/byPatientId/{patientId}", itemRequest.getPatientId())
                 .retrieve()
                 .bodyToMono(Patient.class)
                 .block();
@@ -59,14 +59,14 @@ public class MedicineCartServiceImpl implements MedicineCartService {
         }
 
         // Fetching Medicine Details
-        MedicineStock medicineArray[] = webClientBuilder.build()
+        MedicineStock medicine = webClientBuilder.build()
                 .get()
-                .uri("https://apigateway-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/InventoryManagement/medicineStock/byMedicineID/{id}",
+                .uri("https://apigateway-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/InventoryManagement/medicineStock/byMedicineID/{medicineId}",
                         itemRequest.getMedicineId())
                 .retrieve()
-                .bodyToMono(MedicineStock[].class)
+                .bodyToMono(MedicineStock.class)
                 .block();
-        MedicineStock medicine = (medicineArray != null && medicineArray.length > 0) ? medicineArray[0] : null;
+//      MedicineStock medicine = (medicineArray != null && medicineArray.length > 0) ? medicineArray[0] : null;
 
         if (medicine == null) {
             LOGGER.error("Medicine not found with Medicine ID: {}", itemRequest.getMedicineId());
@@ -129,7 +129,7 @@ public class MedicineCartServiceImpl implements MedicineCartService {
 
         Patient patientDto = webClientBuilder.build()
                 .get()
-                .uri("https://onehealthpatientmanagement-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/patientProfile/{test_id}", patientId)
+                .uri("https://onehealthpatientmanagement-yjb28-dev.apps.sandbox-m4.g2pi.p1.openshiftapps.com/patientProfile/byPatientId/{patientId}", patientId)
                 .retrieve()
                 .bodyToMono(Patient.class)
                 .block();
