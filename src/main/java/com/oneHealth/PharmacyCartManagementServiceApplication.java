@@ -13,11 +13,7 @@ public class PharmacyCartManagementServiceApplication {
 		SpringApplication.run(PharmacyCartManagementServiceApplication.class, args);
 	}
 	@GetMapping
-<<<<<<< HEAD
     public String Welcome() {
-=======
-	public String Welcome() {
->>>>>>> 83f964fc99b418f54fac6f2fe412df1a90b9d864
 
         // This method handles GET requests to the root URL and returns a welcome message.
 
