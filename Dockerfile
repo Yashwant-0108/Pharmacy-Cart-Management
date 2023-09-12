@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk
+FROM ubi8/openjdk-17
 
 COPY target/PharmacyCartManagementService.jar app1.jar
 
